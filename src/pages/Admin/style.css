@@ -1,0 +1,90 @@
+.admin-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 70px;
+}
+.add-container{
+  display: flex;
+  gap: 30px;
+  margin: 30px auto;
+}
+
+.add{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 100px;
+  background: #060fc8;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  cursor: pointer; 
+  font-style: italic;
+}
+.remove-container{
+  display: flex;
+  gap: 30px;
+  margin: 30px auto;
+}
+
+.remove{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 100px;
+  background: #060fc8;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  cursor: pointer; 
+  font-style: italic;
+}
+.update-container{
+  display: flex;
+  gap: 30px;
+  margin: 30px auto;
+}
+
+.update{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 100px;
+  background: #060fc8;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  cursor: pointer; 
+  font-style: italic;
+}
+
+.logout-container{
+  display: flex;
+  gap: 30px;
+  position:absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.logout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 59px;
+  background: #fb0505;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer; 
+  font-style: italic;
+}

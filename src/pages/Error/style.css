@@ -1,0 +1,13 @@
+.error{
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  display:inline;
+  margin: 100px auto;
+}
+
+.error a{
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
