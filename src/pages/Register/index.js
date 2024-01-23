@@ -3,8 +3,9 @@ import './style.css'
 
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { isEmail } from 'validator'
+import {isEmail} from 'validator'
+
+import axios from '../../services/axios'
 
 import person_icon from '../../Assets/person.png'
 import email_icon from '../../Assets/email.png'
@@ -19,25 +20,44 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   
-  function handleRegister(e){
+  async function handleRegister(e){
     e.preventDefault();
+
     let formErrors = false;
-    
-    if(name.length < 3 || name.length > 200){
+
+    if (name.length < 3 || name.length > 200) {
       formErrors = true;
-      toast.error('Nome inválido.');
+      alert("Nome inválido, o nome deve ter de 4 a 199 caracteres")
     }
-    if(!(cpf.length !== 11)){
+
+    if (cpf.length !== 11) {
       formErrors = true;
-      toast.error('CPF inválido.');
+      alert("Cpf inválido, o cpf deve ter exatamente 11 caracteres")
     }
-    if(!isEmail(email)){
+
+    if (!isEmail(email)) {
       formErrors = true;
-      toast.error('Email inválido.');
+      alert("Email inválido")
     }
-    if(password.length < 3 || password.length > 200){
+
+    if (password.length < 6 || password.length > 200) {
       formErrors = true;
-      toast.error('Senha inválida.');
+      alert("Senha inválida, a senha deve ter de 6 a 199 caracteres")
+    }
+
+    if(formErrors) return;
+
+    try {
+      const response = await axios.post('/doctors', {
+        name, 
+        email, 
+        cpf, 
+        password,
+      });
+      navigate('/', {replace: true})
+      console.log(response.data);
+    } catch (error) {
+      alert('Falha ao cadastrar-se')
     }
     
   }

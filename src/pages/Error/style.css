@@ -1,13 +1,19 @@
 .error{
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: aliceblue;
-  display:inline;
-  margin: 100px auto;
+  gap: 10px;
+  color: #dddef0;
+}
+.error p{
+  text-decoration: none;
+  color: #dddef0;
+  font-size: 23px;
 }
 
-.error a{
-  color: #fff;
-  text-align: center;
-  font-size: 30px;
+.undo-container{
+  display: flex;
+  gap: 30px;
+  position:absolute;
+  width: 500px;
 }

@@ -25,33 +25,13 @@
   cursor: pointer; 
   font-style: italic;
 }
-.remove-container{
+.view-container{
   display: flex;
   gap: 30px;
   margin: 30px auto;
 }
 
-.remove{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 350px;
-  height: 100px;
-  background: #060fc8;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: 700;
-  cursor: pointer; 
-  font-style: italic;
-}
-.update-container{
-  display: flex;
-  gap: 30px;
-  margin: 30px auto;
-}
-
-.update{
+.view{
   display: flex;
   align-items: center;
   justify-content: center;

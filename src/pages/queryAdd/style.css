@@ -1,0 +1,22 @@
+.undo-container{
+  display: flex;
+  gap: 30px;
+  position:absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.undo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 59px;
+  background: #060fc8;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer; 
+  font-style: italic;
+}

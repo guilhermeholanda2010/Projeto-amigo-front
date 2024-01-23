@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './style.css'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import axios from '../../services/axios'
+import { isEmail } from 'validator'
 
 import email_icon from '../../Assets/email.png'
 import password_icon from '../../Assets/password.png'
@@ -15,15 +17,40 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   
-  function handleLogin(e){
+  async function handleLogin(e){
     e.preventDefault();
+    let formErrors = false;
     
-    if(email === '' || password === '' || cpf === ''){
-      alert("Preencha todos os campos!");
-    }else{
-      navigate('/admin', {replace: true})
+    if (cpf.length !== 11) {
+      formErrors = true;
+      alert("Cpf inválido, o cpf deve ter exatamente 11 caracteres")
+    }
+
+    if (!isEmail(email)) {
+      formErrors = true;
+      alert("Email inválido")
+    }
+
+    if (password.length < 6 || password.length > 200) {
+      formErrors = true;
+      alert("Senha inválida, a senha deve ter de 6 a 199 caracteres")
     }
     
+    if(formErrors) return;
+    
+    try {
+      const response = await axios.post('/sessions', { 
+        email, 
+        cpf, 
+        password,
+      });
+      navigate('/admin', {replace: true})
+      console.log(response.data);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.user.id);
+    } catch (error) {
+      
+    }
   }
 
   return (

@@ -1,5 +1,3 @@
-import { Link} from "react-router-dom";
-import { useState } from "react";
 import './style.css'
 import { useNavigate } from "react-router-dom";
 
@@ -13,16 +11,10 @@ function Admin() {
     navigate('/queryAdd', {replace: true})
   }
 
-  async function handleUp(e){
+  async function handleView(e){
     e.preventDefault();
     
     navigate('/queryUp', {replace: true})
-  }
-
-  async function handleRemove(e){
-    e.preventDefault();
-    
-    navigate('/queryAdd', {replace: true})
   }
 
   async function handleLogout(e){
@@ -39,15 +31,12 @@ function Admin() {
         <button type="submit" className="add"> Criar Consulta</button>
       </form>
 
-      <form className="remove-container"onSubmit={handleRemove}>
-        <button type="submit" className="remove">Remover uma consulta</button>
-      </form>
-      <form className="update-container" onSubmit={handleUp}>
-        <button type="submit" className="update">Atualizar dados de uma consulta</button>
+      <form className="view-container"onSubmit={handleView}>
+        <button type="submit" className="view">Inspecionar consultas</button>
       </form>
 
       <form className="logout-container" onSubmit={handleLogout}>
-        <button type="submit" className="logout">Sair</button>
+        <button type="submit" className="logout">Fazer Logout</button>
       </form>
 
     </div>

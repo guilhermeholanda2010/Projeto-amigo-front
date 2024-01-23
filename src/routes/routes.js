@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Header from './components/Header';
-import Error from './pages/Error';
-import Admin from './pages/Admin';
-import QueryAdd from './pages/queryAdd';
-import QueryUp from './pages/queryUp';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import Header from '../components/Header';
+import Error from '../pages/Error';
+import Admin from '../pages/Admin';
+import QueryAdd from '../pages/queryAdd';
+import QueryUp from '../pages/queryUp';
 
 function RoutesApp(){
   return(

@@ -1,29 +1,50 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from '../../services/axios';
+import './style.css';
 
-import email_icon from '../../Assets/email.png'
-import password_icon from '../../Assets/password.png'
-import person_icon from '../../Assets/person.png'
 
-const Query = () => {
+function Query(){
 
   const action = "Criar consulta";
-  const [cpf, setCpf] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [pacientName, setPacientName] = useState('');
+  const [pacientCpf, setPacientCpf] = useState('');
+  const [queryDate, setQueryDate] = useState('');
   const navigate = useNavigate();
   
-  function handleQuery(e){
+
+  async function handleUndo(e){
     e.preventDefault();
     
-    if(email === '' || password === '' || cpf === ''){
-      alert("Preencha todos os campos!");
-    }else{
-      navigate('/admin', {replace: true})
-    }
-    
+    navigate('/admin', {replace: true})
   }
+  
+  async function handleQuery(e) {
+    e.preventDefault();
+  
+    try {
+      const token = localStorage.getItem('token'); 
+      const userId = localStorage.getItem('userId');
+  
+      const config = {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post('/queries', {
+        pacient_name:pacientName,
+        pacient_cpf:pacientCpf,
+        query_date: queryDate,
+        doctor_id: userId,
+      }, config);
+      console.log(response.data);
+      
+      alert("Consulta criada com sucesso");
+    } catch (error) {
+      alert("Consulta não foi criada");
+    }
+  }
+  
 
   return (
       <div className='container'>
@@ -33,37 +54,36 @@ const Query = () => {
         </div>
         <form className='inputs' onSubmit={handleQuery}>
             <div className='input'>
-              <img src= {email_icon} alt="" />
               <input 
                 type="text" 
-                placeholder='Email'
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}
+                placeholder='Nome do paciente...'
+                value={pacientName}
+                onChange={(e)=> setPacientName(e.target.value)}
               />
             </div>
             <div className='input'>
-              <img src= {person_icon} alt="" />
               <input 
                 type="text" 
-                placeholder='Cpf'
-                value={cpf}
-                onChange={(e)=> setCpf(e.target.value)}
+                placeholder='Cpf do paciente...'
+                value={pacientCpf}
+                onChange={(e)=> setPacientCpf(e.target.value)}
               />
             </div>
             <div className='input'>
-              <img src={password_icon} alt="" />
               <input
-                autoComplete={false}
-                type="password" 
-                placeholder='********'
-                value={password}
-                onChange={(e)=> setPassword(e.target.value)}
+                type="text" 
+                placeholder='Data da consulta...'
+                value={queryDate}
+                onChange={(e)=> setQueryDate(e.target.value)}
               />
             </div>
           <div className="submit-container">
             <button type="submit" className="submit">Criar</button>
           </div>
         </form>
+      <form className="undo-container" onSubmit={handleUndo}>
+        <button type="submit" className="undo">Fazer outra ação</button>
+      </form>
       </div>
     )
   }
