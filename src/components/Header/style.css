@@ -8,6 +8,9 @@ header{
   justify-content: space-between;
   padding: 0 24px;
 }
+.menu{
+  margin-right: 15px;
+}
 
 header a{
   color: #060fc8;

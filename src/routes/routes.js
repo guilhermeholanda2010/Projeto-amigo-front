@@ -7,6 +7,7 @@ import Error from '../pages/Error';
 import Admin from '../pages/Admin';
 import QueryAdd from '../pages/queryAdd';
 import QueryUp from '../pages/queryUp';
+import DoctorUp from '../pages/DoctorUp';
 
 function RoutesApp(){
   return(
@@ -18,6 +19,7 @@ function RoutesApp(){
         <Route path="/admin" element= { <Admin/> }/>
         <Route path="/queryAdd" element= { <QueryAdd/> }/>
         <Route path="/queryUp" element= { <QueryUp/> }/>
+        <Route path="/doctorUp" element= { <DoctorUp/> }/>
         <Route path="*" element= { <Error/> }/>
       </Routes>
     </BrowserRouter>

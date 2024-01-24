@@ -5,7 +5,6 @@ function Header(){
   return(
     <header>
       <h1>GH Medicos</h1>
-
       <div className="menu">
         <Link to="/">Login</Link>
         <Link to="/register">Register</Link>
