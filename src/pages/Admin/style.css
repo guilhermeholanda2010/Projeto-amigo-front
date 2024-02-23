@@ -29,9 +29,9 @@
   justify-content: center;
   width: 350px;
   height: 100px;
-  background: #060fc8;
+  background: #fff;
+  color:#060fc8;
   border-radius: 50px;
-  color: #fff;
   font-size: 40px;
   font-weight: 700;
   cursor: pointer; 
@@ -49,9 +49,9 @@
   justify-content: center;
   width: 350px;
   height: 100px;
-  background: #060fc8;
+  background: #fff;
+  color:#060fc8;
   border-radius: 50px;
-  color: #fff;
   font-size: 40px;
   font-weight: 700;
   cursor: pointer; 
@@ -68,14 +68,14 @@
   align-items: center;
   justify-content: center;
   width: 350px;
-  height: 100px;
-  background: #060fc8;
+  height: 100px;    
+  background: #fff;
+  color:#060fc8;
   border-radius: 50px;
-  color: #fff;
   font-size: 40px;
   font-weight: 700;
   cursor: pointer; 
-  font-style: italic;
+  font-style: italic; 
 }
 
 
@@ -83,7 +83,7 @@
 .logout-container{
   display: flex;
   gap: 30px;
-  position:absolute;
+  position:fixed;
   bottom: 0;
   right: 0;
 }
@@ -94,11 +94,17 @@
   justify-content: center;
   width: 220px;
   height: 59px;
-  background: #fb0505;
-  border-radius: 30px;
+  background: rgba(219,38,41,0.75);
   color: #fff;
+  border-radius: 30px;
   font-size: 19px;
   font-weight: 700;
   cursor: pointer; 
   font-style: italic;
+  transition: all 0.35s;
+}
+
+.logout:hover{
+  background: rgba(219,38,41,1);
+  color: #fff;
 }

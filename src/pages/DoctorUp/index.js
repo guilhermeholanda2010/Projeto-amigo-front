@@ -39,17 +39,18 @@ function Query(){
         },
       };
       const response = await axios.put('/doctors', {
-        name,
-        email,
-        cpf,
-        oldPassword,
-        password,
-        confirmPassword,
+        name: name,
+        email: email,
+        cpf: cpf,
+        oldPassword: oldPassword,
+        password: password,
+        confirmPassword: confirmPassword,
       }, config);
       
       console.log(response.data);
       
       alert("Dados atualizados com sucesso");
+      navigate('/admin', {replace: true})
     } catch (error) {
       alert("Dados não foram atualizados!");
     }
@@ -121,8 +122,8 @@ function Query(){
             <button type="submit" className="submit">Atualizar</button>
           </div>
         </form>
-      <form className="undo-container" onSubmit={handleUndo}>
-        <button type="submit" className="undo">Fazer outra ação</button>
+      <form className="back-container" onSubmit={handleUndo}>
+        <button type="submit" className="back">Fazer outra ação</button>
       </form>
       </div>
     )

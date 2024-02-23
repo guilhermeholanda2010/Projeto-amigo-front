@@ -40,6 +40,7 @@ function Query(){
       console.log(response.data);
       
       alert("Consulta criada com sucesso");
+      navigate('/admin', {replace: true});
     } catch (error) {
       alert("Consulta não foi criada");
     }
@@ -81,8 +82,8 @@ function Query(){
             <button type="submit" className="submit">Criar</button>
           </div>
         </form>
-      <form className="undo-container" onSubmit={handleUndo}>
-        <button type="submit" className="undo">Fazer outra ação</button>
+      <form className="back-container" onSubmit={handleUndo}>
+        <button type="submit" className="back">Fazer outra ação</button>
       </form>
       </div>
     )
